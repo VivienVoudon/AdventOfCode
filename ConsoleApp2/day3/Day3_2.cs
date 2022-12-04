@@ -58,7 +58,7 @@ public static class Day3_2
         }
 
         public string Items => comp1 + comp2;
-
+        
         public bool HaveItem(char item)
         {
             return comp1.Any(i => i == item) || comp2.Any(i => i == item);
