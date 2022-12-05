@@ -3,11 +3,12 @@ using AoC;
 using System.Text;using ConsoleApp2.day3;
 using static System.Formats.Asn1.AsnWriter;
 using ConsoleApp2.day4;
+using ConsoleApp2.day5;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-Day4_2.Solve();
+new Day5_1().Solve();
 
 Console.WriteLine("THE END");
 
