@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2.day5;
 
-internal class Day5_1 : Day
+internal class Day5_2 : Day
 {
     protected override string testInput { get; } = @"    [D]    
 [N] [C]    
@@ -584,12 +584,16 @@ move 1 from 1 to 9";
                 var nbItem = int.Parse(glop.Groups[1].Value);
                 var from = int.Parse(glop.Groups[2].Value);
                 var to = int.Parse(glop.Groups[3].Value);
-                
+
+                var tempStack = new Stack<char>();
                 for (var i = 0; i < nbItem; i++)
                 {
                     var item = columns[from].Pop();
-                    columns[to].Push(item);
+                    tempStack.Push(item);
                 }
+
+                foreach(var item in tempStack)
+                    columns[to].Push(item);
             }
         }
 
