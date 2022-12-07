@@ -1015,7 +1015,6 @@ $ ls
         protected override void Run(string input)
         {
             var inputLines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
-            //inputLines.Add("cd /"); // to process every directory at the end
 
             int limit = 100000;
             var directories = new List<Directory>();
@@ -1023,50 +1022,22 @@ $ ls
             var rootDirectory = new Directory("root", null);
             var currentDirectory = rootDirectory;
             
-            //var outputLines = new List<string>();
-
             foreach (var line in inputLines)
             {
                 var lineValues = line.Split(' ');
                 if (lineValues[0] == "$")
                 {
-                    //if (outputLines.Any())
-                    //{
-                    //    foreach (var outputLine in outputLines.Where(l => !l.StartsWith("dir")))
-                    //    {
-                    //        var fileValues = outputLine.Split(' ');
-
-                    //        currentDirectory.Files.Add(new File(fileValues[1], int.Parse(fileValues[0])));
-                    //    }
-
-                    //    outputLines.Clear();
-                    //}
 
                     switch (lineValues[1])
                     {
                         case "cd":
-                            //var popDirectoryCount = lineValues[2] == "/"
-                            //    ? dirStack.Count - 1 // keep the root directory
-                            //    : lineValues[2] == ".."
-                            //        ? 1
-                            //        : 0;
-
                             if (lineValues[2] == "/")
                             {
                                 currentDirectory = rootDirectory;
-                                //for (var i = 0; i < dirStack.Count - 1 /* keep the root directory */; i++)
-                                //{
-                                //    var forgottenDir = dirStack.Pop();
-                                //    if (forgottenDir.TotalSize() < limit)
-                                //        savedDirectory.Add(forgottenDir);
-                                //}
                             }
                             else if (lineValues[2] == "..")
                             {
                                 currentDirectory = currentDirectory.Parent;
-                                //var forgottenDir = dirStack.Pop();
-                                //if(forgottenDir.TotalSize() < limit)
-                                //    savedDirectory.Add(forgottenDir);
                             }
                             else
                             {
@@ -1085,17 +1056,6 @@ $ ls
                 else if(!line.StartsWith("dir")) // ignore "dir ...", and other lines are file listing
                         currentDirectory.Files.Add(new File(line.Split(" ")[1], int.Parse(line.Split(" ")[0])));
             }
-
-            //string indent = "  ";
-            //Console.WriteLine(rootDirectory.Name);
-            //foreach (var dir in rootDirectory.Childs)
-            //{
-            //    Console.WriteLine(indent + rootDirectory.Name);
-            //    foreach (var VARIABLE in dir.)
-            //    {
-                    
-            //    }
-            //}
 
             Console.WriteLine(directories.Where(d => d.TotalSize() <= limit).Sum(d => d.TotalSize()));
         }
@@ -1121,12 +1081,6 @@ $ ls
                 Files = new List<File>();
                 Parent = parent;
             }
-            
-            //public void AddFile(int fileSize, string name)
-            //{
-            //    Files.Add()
-            //    Size += fileSize;
-            //}
 
             public void AddDirectory(Directory directory)
             {

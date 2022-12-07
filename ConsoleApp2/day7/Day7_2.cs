@@ -1015,7 +1015,6 @@ $ ls
         protected override void Run(string input)
         {
             var inputLines = input.Split(new[] { Environment.NewLine }, StringSplitOptions.None).ToList();
-            //inputLines.Add("cd /"); // to process every directory at the end
 
             int limit = 100000;
             var directories = new List<Directory>();
@@ -1058,10 +1057,7 @@ $ ls
                 else if(!line.StartsWith("dir")) // ignore "dir ...", and other lines are file listing
                         currentDirectory.Files.Add(new File(line.Split(" ")[1], int.Parse(line.Split(" ")[0])));
             }
-
-            //Console.WriteLine(directories.Where(d => d.TotalSize() <= limit).Sum(d => d.TotalSize()));
-            //target: 30000000
-            // total discspace = 70000000
+            
             var freeSpace = 70000000 - rootDirectory.TotalSize();
             var sizeTargeted = 30000000 - freeSpace;
             var targetDir = directories.Where(d => d.TotalSize() > sizeTargeted)
@@ -1092,12 +1088,6 @@ $ ls
                 Files = new List<File>();
                 Parent = parent;
             }
-            
-            //public void AddFile(int fileSize, string name)
-            //{
-            //    Files.Add()
-            //    Size += fileSize;
-            //}
 
             public void AddDirectory(Directory directory)
             {
