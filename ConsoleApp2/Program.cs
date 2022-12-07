@@ -5,11 +5,13 @@ using static System.Formats.Asn1.AsnWriter;
 using ConsoleApp2.day4;
 using ConsoleApp2.day5;
 using ConsoleApp2.day6;
+using ConsoleApp2.day7;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-new Day6_2().Solve();
+new Day7_2().Solve();
+
 
 Console.WriteLine("THE END");
 
