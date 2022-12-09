@@ -7,11 +7,12 @@ using ConsoleApp2.day5;
 using ConsoleApp2.day6;
 using ConsoleApp2.day7;
 using ConsoleApp2.day8;
+using ConsoleApp2.day9;
 
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-new Day8_2().Solve();
+new Day9_2().Solve();
 
 
 Console.WriteLine("THE END");
