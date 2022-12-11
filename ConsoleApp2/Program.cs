@@ -1,6 +1,8 @@
 ﻿using System.Runtime.InteropServices;
 using AoC;
-using System.Text;using ConsoleApp2.day3;
+using System.Text;
+using ConsoleApp2.day10;
+using ConsoleApp2.day3;
 using static System.Formats.Asn1.AsnWriter;
 using ConsoleApp2.day4;
 using ConsoleApp2.day5;
@@ -12,7 +14,7 @@ using ConsoleApp2.day9;
 // See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-new Day9_2().Solve();
+new Day10_2().Solve();
 
 
 Console.WriteLine("THE END");
